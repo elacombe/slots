@@ -2,11 +2,12 @@ import React from 'react';
 import Fruit from './fruit';
 
 const Fruits = ({ fruits }) => {
+  console.log(fruits);
   const data = _.map(fruits, (fruit, id) => (
   <Fruit
     color={ fruit.color }
+    icon={ fruit.icon }
     key={ id }
-    name={ name }
   />)
   );
 

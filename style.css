@@ -1,6 +1,10 @@
-.fruitmachine {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 100px;
-}
+.slots {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 100px;
+ }
+
+.fruit {
+  padding: 15px;
+ }

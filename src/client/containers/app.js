@@ -5,8 +5,8 @@ import _ from 'lodash';
 
 const App = ({ dispatch, fruits }) => {
   return (
-    <div className='one-armed-bandit'>
-      <Fruits fruits={fruits} />
+    <div className='slots'>
+      <Fruits fruits={ fruits } />
     </div>
   );
 };
@@ -15,4 +15,4 @@ App.propTypes = {
   fruits: React.PropTypes.object.isRequired,
 };
 
-export default connect(state => ({ fruits: state.fruits }))(App);
+export default connect(state => ({ fruits: state }))(App);
