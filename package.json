@@ -1,0 +1,30 @@
+{
+  "name": "slots-develop",
+  "version": "1.0.0",
+  "description": "one armed bandit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elacomberp/slots.git"
+  },
+  "keywords": [
+    "one",
+    "armed",
+    "bandits",
+    "slots",
+    "casino",
+    "fruitmachine"
+  ],
+  "author": "elacombe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elacomberp/slots/issues"
+  },
+  "homepage": "https://github.com/elacomberp/slots#readme",
+  "devDependencies": {
+    "web-component-env": "^1.3.17"
+  }
+}
