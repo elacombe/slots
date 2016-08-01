@@ -1,0 +1,2 @@
+# slots
+one armed bandit
