@@ -20,15 +20,23 @@ const fruitsFactory = (count) => _.times(count, fruitFactory);
 
 const fruits = fruitsFactory(_.random(5, 10));
 
-const checkFruit = (fruit) => (fruit.icon == 'paper-plane') ? true : false;
+const checkFruit = (fruit) => fruit.icon === 'paper-plane';
 
 const combinedFruits = flyd.combine(
   (...params) => _.map(params.slice(0, -2), fruit => fruit()),
   fruits
 );
 
+const endStream = true;
+
+const finalFruits = (fruits) => _.map(fruits, (fruit) => fruit.color = '#cd4436');
+
 function on(fn) {
   flyd.on(fn, combinedFruits);
+}
+
+function onEnd(fn) {
+  flyd.on(fn, endStream);
 }
 
 function rollFruit(fruit) {
@@ -45,7 +53,7 @@ function rollFruit(fruit) {
 
 const rollFruits = () => _.each(fruits, rollFruit);
 
-export default { on, rollFruits };
+export default { on, onEnd, rollFruits };
 
 // while status != true, stream the shit out of it.
 // how to check status efficiently;
