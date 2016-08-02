@@ -13,7 +13,6 @@ export default class App extends React.Component {
   };
 
   render() {
-    console.log('la');
     return (
       <div className='slots'>
         <Fruits fruits={ this.state.fruits } />

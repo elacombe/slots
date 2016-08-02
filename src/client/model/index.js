@@ -27,10 +27,6 @@ const combinedFruits = flyd.combine(
   fruits
 );
 
-const endStream = true;
-
-const finalFruits = (fruits) => _.map(fruits, (fruit) => fruit.color = '#cd4436');
-
 function on(fn) {
   flyd.on(fn, combinedFruits);
 }

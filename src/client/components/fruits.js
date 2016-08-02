@@ -19,7 +19,7 @@ const Fruits = ({ fruits }) => {
 }
 
 Fruits.propTypes = {
-  fruits: React.PropTypes.object.isRequired,
+  fruits: React.PropTypes.array.isRequired,
 }
 
 export default Fruits;
