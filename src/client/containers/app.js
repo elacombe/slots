@@ -1,18 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Fruits from '../components/fruits';
 import _ from 'lodash';
+import store from '../model';
 
-const App = ({ dispatch, fruits }) => {
-  return (
-    <div className='slots'>
-      <Fruits fruits={ fruits } />
-    </div>
-  );
+export default class App extends React.Component {
+  
+  state = { fruits: { 0: { id: 0, color: 'start', icon: 'state' }  } };
+
+  componentWillMount() {
+    store.rollFruits();
+    store.on(fruits => this.setState({ fruits }));
+  };
+
+  render() {
+    console.log('la');
+    return (
+      <div className='slots'>
+        <Fruits fruits={ this.state.fruits } />
+      </div>
+    );
+  };
 };
-
-App.propTypes = {
-  fruits: React.PropTypes.object.isRequired,
-};
-
-export default connect(state => ({ fruits: state }))(App);

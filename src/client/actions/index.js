@@ -1,3 +1,4 @@
+import flyd from 'flyd';
 export const MAKE_FRUIT = 'MAKE_FRUIT';
 export const FINAL_FRUIT = 'FINAL_FRUIT';
 
@@ -8,11 +9,11 @@ const colors = [
 
 const icons = [
   'ambulance', 'automobile', 'bicycle', 'bus', 'cab', 'car', 'fighter-jet',
-  'motorcycle', 'plane', 'rocket', 'ship', 'space-shuttle', 'subway',
+  'motorcycle', 'plane', 'paper-plane','rocket', 'ship', 'space-shuttle', 'subway',
   'train', 'truck',
 ];
 
-const random = (max) => Math.floor((Math.random() * max) + 1);
+const random = (max) => Math.floor(Math.random() * max);
 
 export const makeFruit = (color, icon, id) => ({
   type: MAKE_FRUIT,
@@ -24,22 +25,18 @@ export const makeFruit = (color, icon, id) => ({
 export const finalFruit = () => ({ type: FINAL_FRUIT });
 
 export const loadFruits = () => {
-  return (dispatch) => {
-    Promise.all([
-      loadFruit(0).then(fruit => dispatch(makeFruit(...fruit))),
-      loadFruit(1).then(fruit => dispatch(makeFruit(...fruit))),
-      loadFruit(2).then(fruit => dispatch(makeFruit(...fruit))),
-      loadFruit(3).then(fruit => dispatch(makeFruit(...fruit))),
-      loadFruit(4).then(fruit => dispatch(makeFruit(...fruit))),
-      ]).then(() => setTimeout(() => dispatch(finalFruit()), 3000));
-  };
+      let fruit1 = flyd.stream(loadFruit(0));
+      let fruit2 = flyd.stream(loadFruit(1));
+      let fruit3 = flyd.stream(loadFruit(2));
+      let fruit4 = flyd.stream(loadFruit(3));
+      let fruit5 = flyd.stream(loadFruit(4));
 };
 
 export const loadFruit = (id) => {
   return new Promise(resolve => {
     const fruit = [
       colors[random(13)],
-      icons[random(14)],
+      icons[random(15)],
       id,
     ];
     setTimeout(() => resolve(fruit), random(5000));

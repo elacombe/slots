@@ -1,8 +1,8 @@
 import React from 'react';
 import Fruit from './fruit';
+import _ from 'lodash';
 
 const Fruits = ({ fruits }) => {
-  console.log(fruits);
   const data = _.map(fruits, (fruit, id) => (
   <Fruit
     color={ fruit.color }

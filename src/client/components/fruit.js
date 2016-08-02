@@ -1,15 +1,21 @@
 import React from 'react';
 
-const Fruit = ({ color, icon }) => {
-  const fontAwesome = `fa fa-${icon} fa-5x ${icon == 'spinner' ? 'fa-spin' : ''}`;
-  const style = {
-    color,
-  };
-  return (
-    <div className='fruit'>
-      <span className={ fontAwesome } style={ style }></span>
-    </div>
-  )
+class Fruit extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.icon !== this.props.icon) ||
+      (nextProps.color !== this.props.color);
+  }
+
+  render() {
+    const fontAwesome = `fa fa-${this.props.icon} fa-5x`;
+    const style = { color: this.props.color };
+    return (
+      <div className='fruit'>
+        <span className={ fontAwesome } style={ style }></span>
+      </div>
+    )
+  }
+
 };
 
 Fruit.propTypes = {
